@@ -1,0 +1,85 @@
+
+
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+
+<form class="form-horizontal" action=''  [formGroup]="RegisterForm"  (ngSubmit)="SubmitForm(RegisterForm.value)" novalidate>
+
+  <fieldset>
+    <div id="legend">
+    <a routerLink="">Home</a>
+      <legend class="">Register</legend>
+   
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!RegisterForm.controls['username'].valid && RegisterForm.controls['username'].touched}">
+      <!-- Username -->
+      <label class="control-label col-md-2"  for="username">Username *:</label>
+      <div class="col-md-6">
+        <input class="input-xlarge" type="text"  [formControl]="RegisterForm.controls['username']">
+        <!-- <p class="help-block">Username can contain any letters or numbers</p> -->
+        <p *ngIf="RegisterForm.controls['username'].hasError('required') && (RegisterForm.controls['username'].touched || formValidVar===false)" class="">You must include a user name.</p>
+     </div>
+     
+    </div>
+ 
+    <div class="form-group" [ngClass]="{'has-error':!RegisterForm.controls['email'].valid && RegisterForm.controls['email'].touched}">  
+      <!-- E-mail -->
+      <label class="control-label col-md-2" for="email">E-mail *:</label>
+      <div class="col-md-6">
+        <input class="input-xlarge" type="text" [formControl]="RegisterForm.controls['email']">
+        <p *ngIf="RegisterForm.controls['email'].hasError('required') && (RegisterForm.controls['email'].touched || formValidVar===false)" class="" >You must include a eamil id </p>
+        <!-- <p class="help-block">Please provide your E-mail</p> -->
+    </div>
+    </div>
+ 
+    <div class="form-group" [ngClass]="{'has-error':!RegisterForm.controls['password'].valid && RegisterForm.controls['password'].touched}">
+      <!-- Password-->
+      <label class="control-label col-md-2" for="password">Password:</label>
+      <div class="col-md-6">
+        <input class="input-xlarge" type="password" id="password" name="password" [formControl]="RegisterForm.controls['password']">
+        <!-- <p class="help-block">Password should be at least 4 characters</p> -->
+        <p *ngIf="RegisterForm.controls['password'].hasError('required') && RegisterForm.controls['password'].touched" class="" >You must include password </p>
+        <p *ngIf="RegisterForm.controls['password'].hasError('minlength') && RegisterForm.controls['password'].touched" class="">Your password must be at least 5 characters long.</p>
+        <p *ngIf="RegisterForm.controls['password'].hasError('maxlength') && RegisterForm.controls['password'].touched" class="">Your password cannot exceed 10 characters.</p>
+     </div>
+    </div>
+ 
+    <div class="form-group">
+      <!-- Password -->
+      <label class="control-label col-md-2"  for="password_confirm">Confirm Password:</label>
+      <div class="col-md-6">
+        <input class="input-xlarge" type="password" id="password_confirm" name="password_confirm"> 
+        <!-- <p class="help-block">Please confirm password</p> -->
+    </div>
+    </div>
+
+    <div class="form-group">
+      <!-- E-mail -->
+      <label class="control-label col-md-2">Items:</label>
+      <div class="col-md-6" id="items" value="items"> 
+        <input type="checkbox" id="item1" name="item1" value="item1" [formControl]="RegisterForm.controls['item1']" >
+        <label  class="control-label" for="item1">Item1</label>
+      
+        <input  type="checkbox" id="item2" name="item2" value="item2" [formControl]="RegisterForm.controls['item2']">
+        <label class="control-label" for="item2">Item2</label>
+
+        <input type="checkbox" id="item3" name="item3" value="item3" [formControl]="RegisterForm.controls['item3']" >
+        <label class="control-label" for="item3">Item3</label>
+
+        <input type="checkbox" id="item4" name="item4" value="item4" [formControl]="RegisterForm.controls['item4']">
+        <label class="control-label" for="item4">Item4</label>
+     </div>
+     
+    </div>
+ 
+    <div class="form-group">
+      <!-- Button -->
+      <div class="control-label col-md-5">
+        <button type="submit" class="btn btn-success">Register</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+</section>
+</div>

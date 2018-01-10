@@ -1,0 +1,8 @@
+.alert-success{
+ background-color: green !important;
+}
+
+.alert-danger {
+       background-color: transparent !important;
+       color:#e91414 !important
+}

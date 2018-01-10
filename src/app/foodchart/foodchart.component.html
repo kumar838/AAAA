@@ -1,0 +1,166 @@
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>Default Food Menu List
+      </h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a>
+			</li>
+			<li class="active">Dashboard</li>
+		</ol>
+	</section>
+	<!-- Main content -->
+	<form class="form-horizontal"  #frm="ngForm" (ngSubmit)="onSubmit(frm.value)">
+	<section class="content">
+		<!-- Main row -->
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+					<div class="box box-info">
+						<div class="box-header with-border">
+							<div class="col-lg-6 col-md-7 col-lg-offset-2 col-md-offset-1">
+									<div  class="form-group" *ngIf="showMessage">
+											<div class="col-lg-8 col-md-6 col-sm-5 col-xs-12 col-md-offset-4">
+											 <div class="{{alert_class}} text-center">{{this.successJson.msg}}</div>
+											</div>
+										  </div>
+
+
+
+							<div class="form-group">
+									<label class="col-lg-4 col-md-6 col-sm-5 col-xs-12 control-label">Food Menu</label>
+								      <div class="col-lg-6 col-md-4 col-sm-3 col-xs-12">
+
+									<select class="form-control" required #fchart="ngModel" name="foundation_chart_id"   [(ngModel)]="Foodchart">
+								      <option value="" selected>Select Menu </option>
+								      <option *ngFor="let recname of returnJsonchart" value="{{recname.foundation_chart_id}}">{{recname.foundation_chart_name}} </option>
+									</select>
+									<p *ngIf="fchart.errors && (fchart.dirty || fchart.touched)" class="error-red">Select Food Menu</p>
+
+								</div>
+								<label class="col-lg-2 col-md-2 col-sm-3 col-xs-12 control-label"><a (click)="foodchart();" data-toggle="modal" data-target="#myModal" style="float: left">Add Menu</a></label>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-4 col-md-6 col-sm-5 col-xs-12 control-label">Food Item Category</label>
+
+								<div class="col-lg-6 col-md-4 col-sm-3col-xs-12">
+									<select class="form-control" required #mchart="ngModel" name="menu_categoryid" [(ngModel)]="MenuCat">
+										<option value="" selected>Select Food Item Category </option>
+										<option *ngFor="let recmenu of returnJsonMenu" value="{{recmenu.menu_categoryid}}">{{recmenu.menu_categoryname}} </option>
+
+									</select>
+									<p *ngIf="mchart.errors && (mchart.dirty || mchart.touched)" class="error-red">Food Item Category</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-4 col-md-6 col-sm-5 col-xs-12 control-label">Food Item SubCategory</label>
+
+								<div class="col-lg-6 col-md-4 col-sm-3 col-xs-12">
+							<select class="form-control" required #smchart="ngModel" name="menu_sub_categoryid" (change)="getitemschecked(frm.value);" [(ngModel)]="SubMenuCat">
+									<option value="" selected>Select Food Item SubCategory </option>
+							  <option *ngFor="let recsubmenu of returnJsonSubMenu" value="{{recsubmenu.menu_sub_categoryid}}">{{recsubmenu.menu_sub_categoryname}}</option>
+
+						     </select>
+						     <p *ngIf="smchart.errors && (smchart.dirty || smchart.required)" class="error-red">Select Food Item SubCategory</p>
+								</div>
+							</div>
+
+							</div>
+
+						</div>
+
+					</div>
+			</div>
+			<!-- ./col -->
+
+		</div>
+
+
+		<!-- Main row -->
+		<div class="row">
+			<!-- Left col -->
+			<section class="col-lg-8 col-md-8 col-sm-7 col-xs-12 ">
+					<div class="box box-info">
+						<div class="box-header with-border">
+							<h3 class="box-title">Food Items</h3>
+						
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-l-0 p-r-0">
+									<div class="evn-color " style="min-height:300px;">
+										<div class="form-group m-l-0 m-r-0">
+											<div class="form-check">
+												<label class="form-check-label normal-txt" *ngFor="let recitem of returnJsonitem ;let i=index;">
+													<input type="checkbox"  name="item_id" id="checkbox_item_{{i}}"  [attr.itemid]="recitem.item_id" [checked]="checkItemExists(recitem.item_id)" />  {{recitem?.item_name}}
+															</label>
+								
+											</div>
+										</div>
+									</div>
+	
+									
+								</div>
+								
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m-t-10 p-t-10 text-center">
+										<button type="submit" class="btn btn-save" [disabled]="!frm.valid">Save</button>
+										<button type="button" class="btn btn-default" (click)="resetFunction();">Cancel</button>
+								</div>
+								<div class="clearfix"></div>
+							
+						</div>
+					</div>
+				</section>
+			
+	<!-- Right Col Starts Here -->
+	<section class="col-lg-4 col-md-4 col-sm-5 col-xs-12 ">
+			<div class="box box-info">
+				<div class="box-header with-border">
+					<h3 class="box-title">Nutrition Values</h3>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-r-0 p-l-0 m-r-0 m-l-0">
+					<div class="evn-color "style="min-height:100px;">
+
+					 </div>
+				</div>
+
+				</div>
+
+			</div>
+		</section>
+		<!-- Right Col Ends Here -->
+		</div>
+		<!-- /.row (main row) -->
+	</section>
+    </form>
+	<!-- /.content -->
+</div>
+
+<form #frm1="ngForm">
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+
+	  <!-- Modal content-->
+
+	  <div class="modal-content">
+	    <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">Food Menu Name</h4>
+	    </div>
+
+	    <div class="modal-body" *ngIf="showMessage">
+			<div class="col-lg-8 col-md-6 col-sm-5 col-xs-12 col-md-offset-4">
+			<div class="{{alert_class}} text-center">{{this.successJson.msg}}</div>
+		     </div>
+           </div>
+
+	    <div class="modal-body">
+		<input class="form-control" name="foundation_chart_name" placeholder="Food Menu name" type="text" [(ngModel)]="Foodchartname" >
+	    </div>
+	    <div class="modal-footer">
+            <button type="button" class="btn btn-success"  (click)="chkchart(frm1.value);">Save</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	    </div>
+	  </div>
+	</div>
+    </div>
+</form>
+
+

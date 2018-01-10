@@ -1,0 +1,85 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>Module Master</h1>
+        <ol class="breadcrumb">
+            <li><a  routerLink=""><i class="fa fa-dashboard"></i> Home</a>
+            </li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+    <div class="row">       
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 m-t-5 col-md-offset-3">
+                <div class="box box-info m-b-5">
+                <form class="form-horizontal" (ngSubmit)="onSubmit(frm.value)" #frm="ngForm">
+                    <div class="box-header with-border">
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">            
+              <div class="box-body">
+                <div  class="form-group" *ngIf="showMessage">
+                <div class="col-lg-8 col-md-6 col-sm-5 col-xs-12 col-md-offset-4">
+                <div class="{{alert_class}} text-center">{{this.successJson.msg}}</div>
+               </div>
+                 </div>         
+			   
+                <div class="form-group">
+                  <label  class="col-lg-4 col-md-6 col-sm-5 col-xs-12 control-label">Module Name</label>
+                  <div class="col-lg-8 col-md-6 col-sm-5 col-xs-12">
+                    <input class="form-control" name="module_name" required #Module="ngModel" placeholder="Module Name" type="text" [(ngModel)]="ModuleName">
+                    <p *ngIf="Module.errors && (Module.dirty || Module.touched )" class="error-red"> Please Enter Name </p>
+                  </div>
+                </div>    
+              </div>
+              <!-- /.box-body -->   
+                        </div>	
+                        <div class="clearfix"></div>
+                  <div class="box-footer text-center col-lg-12 col-md-12">
+                <button type="submit"  class="{{buttonClass}}" [disabled]="!frm.valid" >{{submitbtn}}</button>
+                <button type="button" class="btn btn-default" (click)="resetFunction();">Cancel</button>
+                  </div>	
+                    </div>   
+            </form>
+                </div>
+    </div>       
+    </div>
+    <!-- Row Ends Here -->
+    
+    <div class="row">
+        
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m-t-5">
+                <div class="box box-info m-b-5">
+                    <div class="box-header with-border">
+                          <h3 class="box-title">Modules</h3>
+                    </div>
+                    <div class="box-body table-responsive">
+              <table class="table table-bordered table-striped">
+               <thead>
+                 <tr>
+                  <th class="text-center">S.No</th>
+                  <th class="text-center">Module Name</th>
+                  <th class="text-center">Edit</th>
+                  <th class="text-center">Delete</th>
+                </tr>
+               </thead>
+                <tbody>
+                    <tr *ngIf="returnJson.length==0">
+                        <td colspan="6"  class="text-center">No Records Found</td>
+                      </tr>
+                     
+                <tr *ngFor="let rec of returnJson;let i = index">
+                  <td class="text-center">{{i+1}}</td>
+                  <td class="text-center">{{rec.module_name}}</td>
+                  <!-- <td class="text-center">{{rec.created_date * 1000 | date  }}</td> -->
+                  <td class="text-center"><a (click)="getModuleEdit(rec)"><i class="fa fa-pencil-square-o"></i></a></td>
+                  <td class="text-center"><a (click)="deleteModule(rec.module_id)"><i class="fa fa-fw fa-trash"></i></a></td>
+                </tr>
+              </tbody></table>
+            </div>
+                </div>
+    </div>
+    </div>
+    <!-- Row Ends Here -->
+    </section>
+    <!-- /.content -->
+</div>
