@@ -1,0 +1,10 @@
+{
+    "apiUrl":"http://localhost:3000/",
+    "debug":true,
+    "auth-key":"Authorization",
+    "hms-auth-key":"HMSAuthorization",
+    "angularhost": "http://localhost:4200/",
+    "hmsdir": "http://localhost/ums/hms/",  
+    "reportAutoUrl":"http://localhost/ums/user/hospitality/hospitality", 
+    "userUrl":"http://localhost/ums/user/"
+}

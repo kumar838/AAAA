@@ -1,0 +1,88 @@
+{
+  "project": {
+    "version": "1.0.0-beta.28.3",
+    "name": "hospitality"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css",
+        "assets/bootstrap/css/bootstrap.min.css",
+        "assets/dist/css/font-awesome.min.css",
+        "assets/dist/css/hfms.min.css",
+        "assets/dist/css/skins.min.css",
+        "assets/plugins/datepicker/datepicker3.css",
+        "assets/plugins/daterangepicker/daterangepicker.css",
+        "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"
+      ],
+      "scripts": [ 
+        "assets/plugins/jQuery/jquery-2.2.3.min.js",
+        "assets/bootstrap/js/bootstrap.min.js",
+        "assets/plugins/select2/select2.full.min.js",
+        "assets/plugins/input-mask/jquery.inputmask.js",
+        "assets/plugins/input-mask/jquery.inputmask.date.extensions.js",
+        "assets/plugins/input-mask/jquery.inputmask.extensions.js",
+        "assets/dist/js/moment.min.js",
+        "assets/plugins/daterangepicker/daterangepicker.js",
+        "assets/plugins/datepicker/bootstrap-datepicker.js",
+        "assets/plugins/colorpicker/bootstrap-colorpicker.min.js",
+        "assets/plugins/timepicker/bootstrap-timepicker.min.js",
+        "assets/dist/js/app.min.js",
+        "assets/dist/js/demo.js"
+      ],
+      "environments": {
+        "source": "environments/environment.ts",
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "files": "src/**/*.ts",
+      "project": "src/tsconfig.json"
+    },
+    {
+      "files": "e2e/**/*.ts",
+      "project": "e2e/tsconfig.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "prefixInterfaces": false,
+    "inline": {
+      "style": false,
+      "template": false
+    },
+    "spec": {
+      "class": false,
+      "component": true,
+      "directive": true,
+      "module": false,
+      "pipe": true,
+      "service": true
+    }
+  }
+}

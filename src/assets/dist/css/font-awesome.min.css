@@ -1,0 +1,132 @@
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('../fonts/fontawesome-webfont.eot?v=4.5.0');
+	src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype');
+	font-weight: normal;
+	font-style: normal
+}
+.fa {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+.fa-lg {
+	font-size: 1.33333333em;
+	line-height: .75em;
+	vertical-align: -15%
+}
+.fa-2x {
+	font-size: 2em
+}
+.fa-3x {
+	font-size: 3em
+}
+.fa-4x {
+	font-size: 4em
+}
+.fa-5x {
+	font-size: 5em
+}
+.fa-fw {
+	width: 1.28571429em;
+	text-align: center
+}
+.fa-ul {
+	padding-left: 0;
+	margin-left: 2.14285714em;
+	list-style-type: none
+}
+.fa-ul>li {
+	position: relative
+}
+.fa-li {
+	position: absolute;
+	left: -2.14285714em;
+	width: 2.14285714em;
+	top: .14285714em;
+	text-align: center
+}
+.fa-li.fa-lg {
+	left: -1.85714286em
+}
+.fa-dashboard:before, .fa-tachometer:before {
+	content: "\f0e4"
+}
+.fa-pencil-square-o:before {
+	content: "\f044"
+}
+.fa-angle-left:before {
+	content: "\f104"
+}
+.fa-angle-right:before {
+	content: "\f105"
+}
+.fa-user:before {
+	content: "\f007"
+}
+.fa-chevron-left:before {
+	content: "\f053"
+}
+.fa-chevron-right:before {
+	content: "\f054"
+}
+.fa-calendar:before {
+	content: "\f073"
+}
+.fa-trash-o:before {
+	content: "\f014"
+}
+.fa-trash:before {
+	content: "\f1f8"
+}
+
+.fa-envelope-square:before {
+	content: "\f199"
+}
+.fa-envelope-o:before {
+	content: "\f003"
+}
+.fa-envelope:before {
+	content: "\f0e0"
+}
+.fa-search:before {
+	content: "\f002"
+}
+.fa-plus-square:before {
+	content: "\f0fe"
+}
+.fa-minus-circle:before {
+	content: "\f056"
+}
+.fa-plus-circle:before {
+	content: "\f055"
+}
+.fa-circle-o:before {
+	content: "\f10c"
+}
+.fa-circle:before {
+	content: "\f111"
+}
+.fa-question-circle:before {
+	content: "\f059"
+}
+.fa-info-circle:before {
+	content: "\f05a"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
